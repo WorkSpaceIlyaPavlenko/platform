@@ -1,0 +1,98 @@
+.OrderApplicationModalWrapper{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 60%;
+    width: 60%;
+    border-radius: 30px;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background: var(--support_color);
+    /* justify-content: center;
+    gap: 40px; */
+}
+.ModalTextHeading{
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 38px;
+    text-align: center;
+}
+.ModalCloseBtn{
+    position: absolute;
+    top: 15px;
+    right:15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+}
+.ModalCloseBtnSvg{
+
+}
+.ModalNavigationBtn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ModalNavigationBtn.Prev{
+    left: 10px;
+}
+.ModalNavigationBtn.Next{
+    right: 10px;
+}
+.SeclectTypeForAppclicationBtn{
+    width: calc(100% / 3 - 30px);
+    border-radius: 30px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 15px;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+.SeclectTypeForAppclicationSvg{
+    position: absolute;
+    top: 15px;
+    /* transform: translateY(-50%); */
+    left: 15px;
+    
+    width: 30px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+}
+.SeclectTypeForAppclicationBtnsWp{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+.SeclectTypeForAppclicationWp{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    gap: 50px;
+
+}

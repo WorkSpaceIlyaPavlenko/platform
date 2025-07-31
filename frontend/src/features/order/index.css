@@ -1,0 +1,46 @@
+.OrderApplicationFormWp{
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    padding: 30px;
+    box-sizing: border-box;
+    background: rgba(65, 64, 62, 0.8);
+    backdrop-filter: blur(15px);
+    border-radius: 50px;
+    font-family: 'Lora';
+    color: var(--font_color_main);
+    width: 50%;
+    gap: 22px;
+    transform: translate(10%,15%);
+
+}
+.OrderApplicationFormHeaing{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 64px;
+    margin-bottom: 23px;
+    text-align: center;
+}
+.OrderApplicationFormInputText{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+}
+.OrderApplicationFormInputWp{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.OrderApplicationFormInput{
+    box-sizing: border-box;
+    background: #41403E;
+    border: 1px solid var(--font_color_main);
+    border-radius: 20px;
+    min-height: 60px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+
+}

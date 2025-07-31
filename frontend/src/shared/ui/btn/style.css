@@ -1,0 +1,37 @@
+.DefButtonWp{
+    background-color: var(--foreground);
+    border-radius: 100px;
+    padding: 8px;
+    box-sizing: border-box;
+    display: flex;
+    color:var(--font_color_second);
+    z-index: 2;
+    text-align: center;
+    min-width: 424px;
+    position: relative;
+    border: none;
+    justify-content: center;
+    cursor: pointer;
+}
+.DefButtonWpRound{
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 8px);
+    border-radius: 50%;
+    background-color: var(--font_color_second);
+    aspect-ratio: 1 / 1;
+}
+.DefButtonText{
+    text-align: center;
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 46px;
+    color: var(--font_color_second);
+}

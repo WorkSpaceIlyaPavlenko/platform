@@ -1,0 +1,80 @@
+:root {
+  --background: #EAE0E0;
+  --foreground: #171717;
+  --support_color:#41403E;
+  --font_color_main:#EAE0E0;
+  --font_color_second:#1F1D21;
+}
+
+html[data-theme="light"] {
+  --background: #EAE0E0;
+  --foreground: #171717;
+  --font_color_main:#1F1D21;
+  --font_color_second:#EAE0E0;
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #EAE0E0;
+  --font_color_main:#EAE0E0;
+  --font_color_second:#1F1D21;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #EAE0E0;
+  }
+}
+
+html, body {
+  scroll-behavior: smooth;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+body{
+  padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.container{
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 38px;
+}
+/* .container .no-wrap{
+  grid-auto-flow: row;
+} */
+.flex-trap{
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+.backgroundBlocks{
+  background: var(--support_color);
+  opacity: 0.8;
+  backdrop-filter: blur(15px);
+}

@@ -1,0 +1,94 @@
+.ServiceCardWp{
+    position: relative;
+    overflow: hidden;
+    grid-column: span 6;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 30px;
+    background-color: var(--support_color);
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    align-items: center;
+
+    aspect-ratio: 8 / 6.6;
+}
+.StageCardWp{
+    position: relative;
+    overflow: hidden;
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: 5.2 / 6.2;
+
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 30px;
+    background-color: var(--support_color);
+}
+.ServiceCardHaederWp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap:10px;
+    color:var(--font_color_main);
+    z-index: 2;
+}
+.ServiceCardHeading{
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 64px;
+}
+.ServiceCardText{
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 38px;
+    text-align: center;
+}
+.ServiceCardBackgroundMainImg{
+    position: absolute;
+    left: 50%;
+    top: 70px;
+    width: 960px;
+    height: 645px;
+    z-index: 1;
+    transform: translateX(-50%);
+    opacity: 0.8;
+}
+.StageCardImg{
+    position: absolute;
+    z-index: 1;
+    width: 351px;
+    height: 527px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 120px;
+}
+.WorksCardImgsWp{
+    /* flex: 1; */
+    align-self: flex-end;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: 0;
+}
+.WorksCardImg{
+    /* flex: 1; */
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 0.5 ;
+    object-fit: contain;
+
+}
+.WorksCardFlexSize{
+    flex: 0 0 calc((100% - 2 * 38px) / 2);
+    aspect-ratio:1/1;
+    justify-content: space-around;
+}

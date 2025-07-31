@@ -1,0 +1,37 @@
+.sectionHeading{
+    font-family: 'Prata';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 87px;
+    color: var(--font_color_main);
+    grid-column: span 12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.ApplicationFormBlockWp{
+    grid-column:  span 12;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 50px 0;
+    box-sizing: border-box;
+}
+.ApplicationFormBlockImage{
+    z-index: 1;
+    width: 50%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    transform: translate(-10%, -15%);
+}
+.WorksBlockCardWp{
+    grid-column: span 12;
+    gap: 38px;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
