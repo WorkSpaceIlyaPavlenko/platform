@@ -1,0 +1,6 @@
+
+
+
+func main(void) {
+	return 0
+}
