@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { StageCardProps } from "./type";
-
+import './style.css'
 
 export default function StageCard({name, descr, imgUrl}:StageCardProps){
     return (
