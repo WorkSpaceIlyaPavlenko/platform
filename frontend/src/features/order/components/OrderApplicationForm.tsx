@@ -8,7 +8,7 @@ export default function OrderApplicationForm(){
     
     const {register, handleSubmit, formState:{errors}} = useOrderApplicForm()
     const handleForm = (data:OrderApplication) => {
-        console.log('Форма отправлена')
+        console.log('Форма отправлена', data)
     }
     return (
         <form

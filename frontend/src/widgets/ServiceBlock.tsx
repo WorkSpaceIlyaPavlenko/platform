@@ -1,7 +1,6 @@
 'use client'
 
 import OrderApplication from '@/features/modal/components/OrderApplication'
-import { modalIntreface } from '@/features/modal/model/modalSlice';
 import { setOrderApplication } from '@/features/order/model/orderSlice';
 import {DEVELOP_SRVICE_LIST, DevelopServiceList } from '@/shared/CONST'
 import ServiceCard from '@/shared/ui/card/ServiceCard'

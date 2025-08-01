@@ -1,6 +1,5 @@
 import baseApi from "@/shared/api/baseApi";
 import { configureStore } from "@reduxjs/toolkit";
-import { slices } from "./import";
 import orderCreateAllpicationSlice from "@/features/order/model/orderSlice";
 import modelSlice from "@/features/modal/model/modalSlice";
 
