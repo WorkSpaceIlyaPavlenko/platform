@@ -1,7 +1,7 @@
 .OrderApplicationFormWp{
     display: flex;
     flex-direction: column;
-    z-index: 2;
+    z-index: 3;
     padding: 30px;
     box-sizing: border-box;
     background: rgba(65, 64, 62, 0.8);
@@ -9,9 +9,11 @@
     border-radius: 50px;
     font-family: 'Lora';
     color: var(--font_color_main);
-    width: 50%;
+    max-width: 700px;
+    width: 100%;
+    /* width: 50%; */
     gap: 22px;
-    transform: translate(10%,15%);
+    transform: translate(10%,5%);
 
 }
 .OrderApplicationFormHeaing{
@@ -43,4 +45,48 @@
     padding: 5px 10px;
     box-sizing: border-box;
 
+}
+@keyframes AddOrderApplicationFormStatutBoxWp {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.OrderApplicationFormStatutBoxWp{
+    position: absolute;
+    z-index: 4;
+    width: 10%;
+    height: auto;
+    aspect-ratio: 1;
+    top: 50%;
+    background: var(--support_color);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation:AddOrderApplicationFormStatutBoxWp 1s ease-in-out normal ;
+}
+.OrderApplicationFormStatutBoxWpSvgSize{
+    width: 50%;
+    height: 50%;
+}
+@keyframes WaitSvgAnimation {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.WaitSvgAnim{
+    transform-origin: center;
+    animation: WaitSvgAnimation 2s ease-in-out infinite;
+}
+#OrderApplicationFormBtnSubmit{
+    max-width: 60%;
+    align-self:center;
 }

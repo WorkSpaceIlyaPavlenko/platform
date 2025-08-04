@@ -12,8 +12,46 @@
     border: none;
     justify-content: center;
     cursor: pointer;
+    overflow: hidden;
+}
+.DefButtonWp::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  /* background: linear-gradient(
+    120deg,
+    rgba(255, 0, 150, 0) 0%,
+    rgba(255, 0, 150, 0.4) 20%,
+    rgba(0, 200, 255, 0.6) 50%,
+    rgba(0, 255, 150, 0.4) 80%,
+    rgba(0, 255, 150, 0) 100%
+  ); */
+  transform: skewX(-20deg);
+  z-index: 2;
+  pointer-events: none;
+}
+@keyframes shineEffect {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(800%);
+  }
+}
+.DefButtonWp:hover::before {
+  animation: shineEffect 1s ease-in-out infinite;
 }
 .DefButtonWpRound{
+    z-index: 3;
     position: absolute;
     left: 4px;
     top: 50%;
@@ -25,6 +63,12 @@
     border-radius: 50%;
     background-color: var(--font_color_second);
     aspect-ratio: 1 / 1;
+    transition: 300ms ease-in-out all;
+}
+
+.DefButtonWp:hover .DefButtonWpRound{
+    transition: 300ms ease-in-out all;
+    transform: translateY(-50%) translateX(3px);
 }
 .DefButtonText{
     text-align: center;
@@ -34,4 +78,9 @@
     font-size: 36px;
     line-height: 46px;
     color: var(--font_color_second);
+}
+.WorksCardBtnWp{
+  min-width: 360px;
+  max-width: 60%;
+  align-self: center;
 }

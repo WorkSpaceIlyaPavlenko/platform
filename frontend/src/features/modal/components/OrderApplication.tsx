@@ -8,13 +8,14 @@ import { AppDispatch, RootState } from '@/store/store'
 import { useSelector } from 'react-redux'
 import { getTargetModalConf, selectModalByKey } from '../model/secletors'
 import BtnModalClose from '../ui/BtnModalClose'
-import ModalNavigation from '../ui/ModalNavigation'
+// import ModalNavigation from '../ui/ModalNavigation'
 import SeclectTypeForAppclication from '../ui/SeclectTypeForAppclication'
 import { updateModalProps } from '@/widgets/ServiceBlock'
+import { setOrderApplication } from '@/features/order/model/orderSlice'
 
 const keymodal = 'applicatonService' 
 
-export default function OrderApplication({children, handleApllication, name}:OrderApplicationProps){
+export default function OrderApplication({children, name}:OrderApplicationProps){
     const [stage, setStage] = useState<number>(1)
     const dispatch = useDispatch<AppDispatch>()
 
@@ -34,10 +35,21 @@ export default function OrderApplication({children, handleApllication, name}:Ord
         dispatch(closeTargetModal({key:keymodal}))
         setStage(1)
     }
+
+    const updateModal= (item:updateModalProps) => {
+            const categoryService = 'develop';
+            const data = {
+                categoryService,
+                ...item
+            }
+            dispatch(setOrderApplication(data));
+    }
+
     return (
         <>
             {children(
-            (modalKey:string, modalConf:modalIntreface) => toggleModal(modalKey,modalConf)
+            (modalKey:string, modalConf:modalIntreface) => toggleModal(modalKey,modalConf),
+            (item:updateModalProps) => updateModal(item)
             )}
             {
                 isActive && 
@@ -45,7 +57,7 @@ export default function OrderApplication({children, handleApllication, name}:Ord
                     <BtnModalClose closeModal={() => closeModal()}/>
                     {
                         stage === 1 && <SeclectTypeForAppclication
-                        handleApllication={(item:updateModalProps) => handleApllication(item)}
+                        handleApllication={(item:updateModalProps) => updateModal(item)}
                         changeStage={() => changeStage(stage + 1)}
                         closeModal={() => closeModal()}
                         />

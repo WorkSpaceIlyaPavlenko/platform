@@ -68,6 +68,9 @@ a {
 /* .container .no-wrap{
   grid-auto-flow: row;
 } */
+ [data-theme] {
+  overflow: visible !important;
+}
 .flex-trap{
   display: flex;
   flex-direction: column;

@@ -1,24 +1,34 @@
 import { WorksCardProps } from "./type";
 import './style.css'
 import Image from "next/image";
+import InnerButtonRound from "../btn/InnerBtnRound";
+import ArrowSvg from '@/shared/assets/svg/ArrowSvg.svg'
+import WorkCardNav from "@/shared/components/WorkCardNav";
 
 export default function WorksCard({name, descr, imgUrls}:WorksCardProps){
     return (
         <article className="StageCardWp WorksCardFlexSize">
             <div className="ServiceCardHaederWp">
-                <h4 className="ServiceCardHeading">{name}</h4>
-                <p className="ServiceCardText">{descr}</p>
+                <h4 className="ServiceCardHeading WorksCardTheading">{name}</h4>
+                <p className="ServiceCardText WorksCardTextSize">{descr}</p>
             </div>
-            <div className="WorksCardImgsWp">
-                {imgUrls.map((img) => (
+            <WorkCardNav imgUrls={imgUrls}/>
+            <a href=""
+            target="_blank"
+            rel="noopener noreferrer"
+            className="DefButtonWp WorksCardBtnWp"
+            >
+                <InnerButtonRound>
                     <Image
-                    key={img.id}
-                    src={img.url}
-                    alt={descr+''+img.url}
-                    className="WorksCardImg"
+                    src={ArrowSvg}
+                    alt="ArrowSvg"
+                    width={41}
+                    height={20}
+                    className="WorksBlockPostiton"
                     />
-                ))}
-            </div>
+                </InnerButtonRound>
+                <p className="DefButtonText">Посмотреть</p>
+            </a>
         </article>
     )
 }

@@ -1,11 +1,12 @@
+import { DevelopServiceList } from "@/shared/CONST";
 import { StaticImageData } from "next/image";
 
-export interface StageCardProps{
-    name:string;
-    descr:string;
-    imgUrl:StaticImageData;
-}
-export interface ServiceCardProps extends StageCardProps{
+// export interface StageCardProps{
+//     name:string;
+//     descr:string;
+//     imgUrl:StaticImageData;
+// }
+export interface ServiceCardProps extends DevelopServiceList{
     action:() => void;
 }
 export interface ImgInterface{

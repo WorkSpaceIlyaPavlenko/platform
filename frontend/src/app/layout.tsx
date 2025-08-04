@@ -29,7 +29,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <StoreProvider>
-            <ThemeProvider attribute="data-theme"  defaultTheme={'dark'} enableSystem>
+            <ThemeProvider 
+            attribute="data-theme"  
+            defaultTheme={'dark'} 
+            enableSystem
+            
+            >
               <Header/>
               {children}
               {/* <div id="modal-root"></div> */}

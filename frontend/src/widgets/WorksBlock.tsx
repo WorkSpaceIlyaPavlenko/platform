@@ -1,5 +1,7 @@
 import { WORKS_DATA } from "@/shared/CONST";
+
 import WorksCard from "@/shared/ui/card/WorksCard";
+
 
 export default function WorksBlock(){
     return (
@@ -15,6 +17,7 @@ export default function WorksBlock(){
                     />
                 ))}
             </div>
+            
             
         </section>
     )

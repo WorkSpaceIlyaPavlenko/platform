@@ -6,9 +6,9 @@ export type OrderApplicationProps = {
     children:(
         // stage:number,
         // onClick:(newStage:number) => void,
-        
-        action:(modalKey:string, modalConf:modalIntreface) => void
+        action:(modalKey:string, modalConf:modalIntreface) => void,
+        updateModal:(item:updateModalProps) => void
     ) => ReactNode,
-    handleApllication:(item:updateModalProps) => void,
+    // handleApllication:(item:updateModalProps) => void,
     name:string
 } 
