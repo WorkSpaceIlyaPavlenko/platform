@@ -1,7 +1,10 @@
 package telegram
 
 import (
+	"fmt"
 	"log"
+	"server/internal/model"
+	"strings"
 	"time"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
@@ -31,6 +34,7 @@ func StartTelregramLisener() {
 			if update.CallbackQuery != nil {
 				KeyBordCalback(update)
 			}
+
 		}()
 		time.Sleep(3 * time.Second)
 	}
@@ -85,4 +89,37 @@ func KeyBordCalback(update tgbotapi.Update) {
 	// case "create_order":
 	// 	(*msg) = "Процесс создания заказа"
 	// }
+}
+
+func TelegramRequestPush(requstInfo *model.RequestModel) {
+	chatID := -1002790831188
+	var messageLines []string
+
+	if requstInfo.UserName != "" {
+		messageLines = append(messageLines, fmt.Sprintf("👤 Имя: %s", requstInfo.UserName))
+	}
+	if requstInfo.Email != "" {
+		messageLines = append(messageLines, fmt.Sprintf("📧 Email: %s", requstInfo.Email))
+	}
+	if requstInfo.Messanger != "" {
+		messageLines = append(messageLines, fmt.Sprintf("💬 Мессенджер: %s", requstInfo.Messanger))
+	}
+	if requstInfo.Comment != "" {
+		messageLines = append(messageLines, fmt.Sprintf("📝 Комментарий: %s", requstInfo.Comment))
+	}
+
+	// Если ни одного поля нет — не отправляем ничего
+	if len(messageLines) == 0 {
+		fmt.Println("Нет данных для отправки в Telegram.")
+		return
+	}
+
+	fullMessage := strings.Join(messageLines, "\n")
+
+	// Вставь сюда свою отправку через Telegram Bot API
+	msg := tgbotapi.NewMessage(int64(chatID), fullMessage)
+	_, err := Bot.Send(msg)
+	if err != nil {
+		fmt.Println("Ошибка при отправке в Telegram:", err)
+	}
 }

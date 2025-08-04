@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"server/internal/handler"
+	"server/internal/telegram"
 
 	"github.com/go-chi/chi/v5"
 )
@@ -20,6 +21,7 @@ func New() http.Handler {
 
 	mux.Get("/", handler.RegisterGetAllUsers)
 	mux.Get("/ping", Ping)
+	mux.Post("/api/telegram/form", telegram.TelegramPostReq)
 	// mux.Post("/telegram", func(w http.ResponseWriter, r *http.Request) {})
 
 	return mux
