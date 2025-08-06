@@ -69,6 +69,7 @@ export default function ServiceCard({action, imgUrl, name, descr,imgsFigures}:Se
                     <Image
                     src={ArrowSvg}
                     alt="ArrowSvg"
+                    className="ServiceCardSvg"
                     width={41}
                     height={20}
                     />

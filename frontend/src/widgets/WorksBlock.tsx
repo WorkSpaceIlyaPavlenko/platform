@@ -1,3 +1,4 @@
+import WorksImgModal from "@/features/modal/components/WorksImgModal";
 import { WORKS_DATA } from "@/shared/CONST";
 
 import WorksCard from "@/shared/ui/card/WorksCard";
@@ -5,6 +6,7 @@ import WorksCard from "@/shared/ui/card/WorksCard";
 
 export default function WorksBlock(){
     return (
+        <>
         <section id="Works" className="container no-wrap">
             <h3 className='sectionHeading'>Наши работы</h3>
             <div className="WorksBlockCardWp">
@@ -20,5 +22,7 @@ export default function WorksBlock(){
             
             
         </section>
+        <WorksImgModal/>
+        </>
     )
 }

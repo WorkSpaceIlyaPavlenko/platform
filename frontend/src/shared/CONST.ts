@@ -169,7 +169,8 @@ export const ORDER_APPLICATION_VARIANTS : OrderApplicationsList[]= [
         name:'Telegram',
         getResult:'telegram',
         icon:TelegrammSvg,
-        backGround:'#3497E7'
+        backGround:'#3497E7',
+        endpoint:'https://t.me/cubromanager_bot'
     },
     {
         name:'Заявка на сайте',
@@ -183,7 +184,7 @@ export const ORDER_APPLICATION_VARIANTS : OrderApplicationsList[]= [
         getResult:'account',
         icon:TelegrammSvg,
         backGround:'#1F1D21',
-        endpoint:'user/createOrder'
+        endpoint:'users/entry'
     }
 ]
 export const STAGES_LIST : ReplaceKey<DevelopServiceList, "imgsFigures", "dopImg", dopImgs>[] = [

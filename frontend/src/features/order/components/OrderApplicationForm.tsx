@@ -9,6 +9,7 @@ import SvgSucc from '@/shared/assets/svg/SuccessSvg.svg'
 import WaitSvg from '@/shared/assets/svg/WaitSvg.svg'
 import CrossSvg from '@/shared/assets/svg/CrossSvg.svg'
 
+
 type StusType = 'pending' | 'none' | 'failed' | 'success'
 
 
@@ -23,21 +24,31 @@ export default function OrderApplicationForm(){
         
         setStatus(newStatus)
 
-        await new Promise(res => setTimeout(() => {
-            
+        try {
+            const res = await fetch("http://localhost:7070/api/telegram/form", {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+
+            if (!res.ok) throw new Error("Request failed")
+
             newStatus = "success"
             setStatus(newStatus)
             reset()
-            res("ok");
-        }, 3000))
-
-        console.log('Форма отправлена', data)
-        await new Promise(res => setTimeout(() => {
-            
-            newStatus = "none"
+            } catch (err) {
+            newStatus = "failed"
             setStatus(newStatus)
-            res("ok");
-        }, 1000))
+            }finally{
+                setTimeout(() => {
+                    newStatus = "none"
+                    setStatus(newStatus)
+                },3000) 
+            }
+
+
         
     }
     return (
@@ -74,7 +85,7 @@ export default function OrderApplicationForm(){
                     className="OrderApplicationFormInput"
                     type="text" />
                     {errors.name && 
-                        <p style={{ color: 'red' }}>{errors.name.message}</p>
+                        <p style={{ color: 'red' }} className="OrderApplicationFormInputTextError">{errors.name.message}</p>
                     }
                 </div>
 
@@ -86,7 +97,7 @@ export default function OrderApplicationForm(){
                     className="OrderApplicationFormInput" 
                     type="text" />
                     {errors.email && 
-                        <p style={{ color: 'red' }}>{errors.email.message}</p>
+                        <p style={{ color: 'red' }} className="OrderApplicationFormInputTextError">{errors.email.message}</p>
                     }
                 </div>
 

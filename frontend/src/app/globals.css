@@ -1,31 +1,34 @@
 :root {
-  --background: #EAE0E0;
-  --foreground: #171717;
-  --support_color:#41403E;
-  --font_color_main:#EAE0E0;
-  --font_color_second:#1F1D21;
+  --background: 234,224,224;
+  /* --background:222,213,213; */
+  --foreground: 33,33,33;
+  --support_color:65,64,62;
+  --font_color_main:234,224,224;
+  --font_color_second:31,29,33;
 }
 
 html[data-theme="light"] {
-  --background: #EAE0E0;
-  --foreground: #171717;
-  --font_color_main:#1F1D21;
-  --font_color_second:#EAE0E0;
+  --background: 222,213,213;
+  --foreground: 33,33,33;
+  --support_color:204,197,197;
+  --font_color_main:31,29,33;
+  --font_color_second:234,224,224;
   color-scheme: light;
 }
 
 html[data-theme="dark"] {
-  --background: #0a0a0a;
-  --foreground: #EAE0E0;
-  --font_color_main:#EAE0E0;
-  --font_color_second:#1F1D21;
+  --background: 33,33,33;
+  --foreground: 234,224,224;
+  --support_color:65,64,62;
+  --font_color_main:234,224,224;
+  --font_color_second:31,29,33;
   color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #EAE0E0;
+    --background: 33,33,33;
+    --foreground: 234,224,224;
   }
 }
 
@@ -33,8 +36,8 @@ html, body {
   scroll-behavior: smooth;
   max-width: 100vw;
   overflow-x: hidden;
-  background: var(--background);
-  color: var(--foreground);
+  background: rgba(var(--background));
+  color: rgba(var(--foreground));
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -77,7 +80,20 @@ a {
   gap: 70px;
 }
 .backgroundBlocks{
-  background: var(--support_color);
-  opacity: 0.8;
+  background: rgba(var(--support_color), 0.8);
   backdrop-filter: blur(15px);
+}
+.NoDes{
+  display: none;
+}
+@media (max-width: 480px) {
+  body{
+    padding: 10px;
+  }
+  .flex-trap{
+    gap: 20px;
+  }
+  .container{
+    gap:20px;
+  }
 }

@@ -29,7 +29,7 @@ export default function ServiceBlock(){
                                 id:index,
                                 name:block.name,
                                 status:true,
-                                priority:3,
+                                priority:5,
                                 steps:2
                             }); 
                             updateModal({

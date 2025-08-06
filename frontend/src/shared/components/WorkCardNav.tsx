@@ -1,27 +1,61 @@
 'use client'
 
 import Image from "next/image"
-import { WorksCardProps } from "../ui/card/type"
-import React, { useState } from "react"
+import { ImgInterface, WorksCardProps } from "../ui/card/type"
+import React, { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import ArrowSvg from "@/shared/assets/svg/ArrorSvgV2.svg"
+import { useDispatch } from "react-redux"
+import { AppDispatch, RootState } from "@/store/store"
+import { createOrToogleModal, modalIntreface } from "@/features/modal/model/modalSlice"
+import {  AddOptionalField } from "../utils/type"
 
-type WorkCardImgsProps = Pick<WorksCardProps, "imgUrls">
-const WorkCardNav = React.memo(function({imgUrls}:WorkCardImgsProps){
-    const [idx, setIdx] = useState(0)
+const keymodal = 'WorksImgModal' 
+
+type WorkCardImgsProps = AddOptionalField<Pick<WorksCardProps, "imgUrls">, "indx", number>
+
+const WorkCardNav = React.memo(function({imgUrls ,indx}:WorkCardImgsProps){
+    
+    const dispatch = useDispatch<AppDispatch>()
+    const [idx, setIdx] = useState(indx || 0)
+    const modalInfo = (status:boolean) => {
+        const conf : modalIntreface<{ imgs: ImgInterface[], curIdx: number }> = {
+            id: 222,
+            name: 'WorksImgModalImgs',
+            status,
+            priority: 8,
+            steps: imgUrls.length,
+            more: {
+                imgs: imgUrls,
+                curIdx: idx
+            }
+        };
+        return conf
+    }
+    const toggleModal = (modalKey:string, modalConf:modalIntreface) => {
+        dispatch(createOrToogleModal({key:modalKey, modal:modalConf}))
+    }
+    const handleModalClick = () => {
+        const conf = modalInfo(true)
+        toggleModal(keymodal, conf);
+    };
     return (
         <>
             <button className="WorkCardNavBtn Left" 
-            onClick={() => setIdx((prev) => (prev - 1 < 0) ? imgUrls.length - 1 : prev - 1 
-            )}>
+            onClick={() => {
+                setIdx((prev) => (prev - 1 < 0) ? imgUrls.length - 1 : prev - 1 )
+                modalInfo(false);
+            }}>
                 <Image src={ArrowSvg} alt="Arrrow Svg Left" className="ArrowSvg Left"/>
             </button>
             <button className="WorkCardNavBtn Right"
-            onClick={() => setIdx(prev => (prev + 1) % imgUrls.length)}
-            >
+            onClick={() => {
+                setIdx(prev => (prev + 1) % imgUrls.length)
+                modalInfo(false);
+            }}>
                 <Image src={ArrowSvg} alt="Arrrow Svg Right" className="ArrowSvg Right"/>
             </button>
-             <div className="WorksCardImgsWp">
+             <div className="WorksCardImgsWp" onClick={() => handleModalClick()}>
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={imgUrls[idx].id}

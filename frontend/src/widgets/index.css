@@ -75,3 +75,13 @@
 .WorksBlockPostiton{
     transform: rotate(-45deg);
 }
+@media (max-width:760px) {
+    .sectionHeading{
+        font-size: 40px;
+    }
+}
+/* @media (max-width:460px) {
+    .WorksCardFlexSize{
+
+    }
+} */

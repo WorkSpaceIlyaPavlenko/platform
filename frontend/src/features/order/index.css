@@ -4,7 +4,7 @@
     z-index: 3;
     padding: 30px;
     box-sizing: border-box;
-    background: rgba(65, 64, 62, 0.8);
+    background: rgba(var(--support_color), 0.8);
     backdrop-filter: blur(15px);
     border-radius: 50px;
     font-family: 'Lora';
@@ -12,7 +12,7 @@
     max-width: 700px;
     width: 100%;
     /* width: 50%; */
-    gap: 22px;
+    gap: 10px;
     transform: translate(10%,5%);
 
 }
@@ -35,16 +35,22 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
 }
 .OrderApplicationFormInput{
     box-sizing: border-box;
-    background: #41403E;
-    border: 1px solid var(--font_color_main);
+    background: rgba(var(--support_color),1);
+    border: 1px solid rgba(var(--font_color_main));
     border-radius: 20px;
     min-height: 60px;
     padding: 5px 10px;
     box-sizing: border-box;
-
+}
+.OrderApplicationFormInputTextError{
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 @keyframes AddOrderApplicationFormStatutBoxWp {
     0%{
@@ -61,7 +67,7 @@
     height: auto;
     aspect-ratio: 1;
     top: 50%;
-    background: var(--support_color);
+    background: rgba(var(--support_color));
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
@@ -90,3 +96,51 @@
     max-width: 60%;
     align-self:center;
 }
+@media(max-width: 970px){
+    .OrderApplicationFormWp{
+        transform: translate(0, 0);
+        max-width: 500px;
+    }
+    .OrderApplicationFormHeaing{
+        font-size: 35px;
+        line-height: 40px;
+    }
+    .OrderApplicationFormInputText{
+        font-size: 18px;
+    }
+    .OrderApplicationFormInput{
+        min-height: 54px;
+    }
+    /* .OrderApplicationFormHeaing{
+        font-size: 30px;
+        margin-bottom: 10px;
+    } */
+}
+@media(max-width: 780px){
+    .OrderApplicationFormHeaing{
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+}
+@media(max-width: 480px){
+    .OrderApplicationFormWp{
+        transform: translate(0, 0);
+        padding: 20px;
+    }
+    .OrderApplicationFormHeaing{
+        font-size: 30px;
+        margin-bottom: 10px;
+        line-height: 35px;
+    }
+    .OrderApplicationFormInputText{
+        font-size: 16px;
+    }
+    .OrderApplicationFormInput{
+        min-height: 45px;
+        border-radius: 15px;
+    }
+    .ApplicationFormBlockWp{
+        padding: 0;
+    }
+}
+

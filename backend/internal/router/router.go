@@ -21,6 +21,7 @@ func New() http.Handler {
 
 	mux.Get("/", handler.RegisterGetAllUsers)
 	mux.Get("/ping", Ping)
+	mux.MethodFunc("OPTIONS", "/api/telegram/form", telegram.TelegramPostReq)
 	mux.Post("/api/telegram/form", telegram.TelegramPostReq)
 	// mux.Post("/telegram", func(w http.ResponseWriter, r *http.Request) {})
 

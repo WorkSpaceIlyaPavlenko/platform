@@ -1,10 +1,10 @@
 .DefButtonWp{
-    background-color: var(--foreground);
+    background-color: rgba(var(--foreground));
     border-radius: 100px;
     padding: 8px;
     box-sizing: border-box;
     display: flex;
-    color:var(--font_color_second);
+    color:rgba(var(--font_color_second));
     z-index: 2;
     text-align: center;
     min-width: 424px;
@@ -61,7 +61,7 @@
     justify-content: center;
     height: calc(100% - 8px);
     border-radius: 50%;
-    background-color: var(--font_color_second);
+    background-color: rgba(var(--font_color_second));
     aspect-ratio: 1 / 1;
     transition: 300ms ease-in-out all;
 }
@@ -77,10 +77,22 @@
     font-weight: 500;
     font-size: 36px;
     line-height: 46px;
-    color: var(--font_color_second);
+    color: rgba(var(--font_color_second));
 }
 .WorksCardBtnWp{
   min-width: 360px;
   max-width: 60%;
   align-self: center;
+}
+@media (max-width: 480px) {
+  .DefButtonWp{
+    min-width: 300px;
+  }
+  .DefButtonText{
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .DefButtonWpRound{
+
+  }
 }

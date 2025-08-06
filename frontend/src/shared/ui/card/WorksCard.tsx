@@ -24,7 +24,7 @@ export default function WorksCard({name, descr, imgUrls}:WorksCardProps){
                     alt="ArrowSvg"
                     width={41}
                     height={20}
-                    className="WorksBlockPostiton"
+                    className="ServiceCardSvg WorksBlockPostiton"
                     />
                 </InnerButtonRound>
                 <p className="DefButtonText">Посмотреть</p>

@@ -17,27 +17,29 @@ export default function SeclectTypeForAppclication({handleApllication, changeSta
         <h5 className="ModalTextHeading">Выберите удобный способ оформления заказа</h5>
         <div className="SeclectTypeForAppclicationBtnsWp">
             {ORDER_APPLICATION_VARIANTS.map(item => {
-                if(item.getResult === 'telegram') 
-                    return( <button className="SeclectTypeForAppclicationBtn"
-                    style={{backgroundColor:item.backGround}} 
-                    key={item.getResult}
-                    onClick={() => {
-                        handleApllication({typeService:item.getResult});
-                        changeStage();
-                    }}
-                    >
-                        <Image
-                        src={item.icon}
-                        alt="SvgIcon"
-                        className="SeclectTypeForAppclicationSvg"
-                        />
-                        {item.name}
-                    </button>)
-                else return <Link 
+                // if(item.getResult === 'telegram') 
+                //     return( <button className="SeclectTypeForAppclicationBtn"
+                //     style={{backgroundColor:item.backGround}} 
+                //     key={item.getResult}
+                //     onClick={() => {
+                //         handleApllication({typeService:item.getResult});
+                //         changeStage();
+                //     }}
+                //     >
+                //         <Image
+                //         src={item.icon}
+                //         alt="SvgIcon"
+                //         className="SeclectTypeForAppclicationSvg"
+                //         />
+                //         {item.name}
+                //     </button>)
+                // else return 
+                    return <Link 
                     className="SeclectTypeForAppclicationBtn"
                     style={{backgroundColor:item.backGround}} 
                     key={item.getResult}
                     href={item.endpoint || ''}
+                    target={item.getResult ==='telegram' ? '_blank' : ''}
                     onClick={() => {
                         handleApllication({typeService:item.getResult});
                         changeStage();

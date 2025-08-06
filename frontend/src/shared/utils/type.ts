@@ -6,3 +6,9 @@ export type ReplaceKey<
   NewKey extends string,
   NewType
 > = Omit<T, OldKey> & { [K in NewKey]: NewType };
+
+export type AddField<T, K extends string, V> = T & { [P in K]: V };
+
+export type AddOptionalField<T, K extends string, V> = T & {
+  [P in K]?: V;
+};

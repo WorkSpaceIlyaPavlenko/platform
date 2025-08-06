@@ -1,6 +1,6 @@
 'use client'
 import '../index.css'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { OrderApplicationProps } from '../type'
 import { closeTargetModal, createOrToogleModal, modalIntreface } from '../model/modalSlice'
 import { useDispatch } from 'react-redux'
@@ -45,6 +45,8 @@ export default function OrderApplication({children, name}:OrderApplicationProps)
             dispatch(setOrderApplication(data));
     }
 
+    
+
     return (
         <>
             {children(
@@ -62,11 +64,11 @@ export default function OrderApplication({children, name}:OrderApplicationProps)
                         closeModal={() => closeModal()}
                         />
                     }
-                    {
+                    {/* {
                         stage == 2 && <>
                             Hello suchks
                         </>
-                    }
+                    } */}
                     
                     {/* <ModalNavigation
                     changeStage={(newStage:number) => changeStage(newStage)}
