@@ -71,6 +71,7 @@ const WorkCardNav = ({imgUrls ,indx}:WorkCardImgsProps) => {
                         alt={`${imgUrls[idx].url}`}
                         className="WorksCardImg"
                         blurDataURL={imgUrls[idx].url.blurDataURL}
+                        priority
                         />
                     </motion.div>
                 </AnimatePresence>
