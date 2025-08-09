@@ -1,12 +1,15 @@
-# :80{
-#   reverse_proxy * next:3000
-#   handle_path /api* {
-#     reverse_proxy api:8080
-#   }
-#   @nextstatic path /_next/static/*
-#   header @nextstatic Cache-Control "public, max-age=31536000, immutable"
-# }
-:80 {
-  handle_path /api* { reverse_proxy api:8080 }
+cubro-sites.ru, www.cubro-sites.ru {
+  encode gzip
+
+  # API — префикс /api НЕ срезаем
+  handle /api/* {
+    reverse_proxy api:8080
+  }
+
+  # кэш для статических ассетов Next (необязательно)
+  @nextstatic path /_next/static/*
+  header @nextstatic Cache-Control "public, max-age=31536000, immutable"
+
+  # всё остальное — в Next
   reverse_proxy * next:3000
 }
