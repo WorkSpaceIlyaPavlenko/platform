@@ -5,15 +5,15 @@ import BtnChangeLn from '@/shared/layouts/header/ui/ButtoСhangeLn'
 import { modalIntreface } from "../model/modalSlice"
 import Image from "next/image"
 import CrossSvg from "@/shared/assets/svg/CrossSvg.svg"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence} from "framer-motion"
 
 type BurgerModalWindowsProps = {
     toggleWindow:() => void,
     closeModal:() => void,
     isActive:boolean,
-    modalConf:modalIntreface<any>
+    modalConf:modalIntreface
 }
-export default function BurgerModalWindows({toggleWindow , closeModal ,isActive, modalConf}:BurgerModalWindowsProps){
+export default function BurgerModalWindows({ closeModal ,isActive, modalConf}:BurgerModalWindowsProps){
     return (
         <>
         <AnimatePresence mode="wait">

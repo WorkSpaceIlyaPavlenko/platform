@@ -3,7 +3,7 @@
 export default function ButtoСhanegLn(){
     return (
         <button className="ThemeButtonWp">
-
+            RU
         </button>
     ) 
 }

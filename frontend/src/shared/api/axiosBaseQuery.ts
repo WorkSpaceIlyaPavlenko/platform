@@ -1,21 +1,48 @@
-import type { AxiosBaseQueryArgs } from "./type";
-import axios from "axios";
+// src/shared/api/axiosBaseQuery.ts
+import axios, { type AxiosResponse } from "axios";
+import type { BaseQueryFn } from "@reduxjs/toolkit/query";
 import Cookies from "js-cookie";
 
+export type AxiosBaseQueryArgs = {
+  url: string;
+  method?: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
+  // тело запроса и params делаем типобезопасными без any
+  data?: unknown;
+  params?:
+    | Record<string, string | number | boolean | null | undefined>
+    | URLSearchParams;
+  withAuth?: boolean;
+};
+
+type AxiosBaseQueryError = {
+  status?: number;
+  data?: unknown;
+  message?: string;
+};
+
+// Ответ /auth/refresh-token
+type RefreshResponse = {
+  accessToken?: string;
+};
+
 export const axiosBaseQuery =
-  ({ baseUrl = '' }: { baseUrl?: string } = {}) =>
-  async ({ url, method, data, params, withAuth = true }: AxiosBaseQueryArgs) => {
+  ({ baseUrl = "" }: { baseUrl?: string } = {}): BaseQueryFn<
+    AxiosBaseQueryArgs,
+    unknown,
+    AxiosBaseQueryError
+  > =>
+  async ({ url, method = "GET", data, params, withAuth = true }) => {
     try {
       const headers: Record<string, string> = {};
 
       if (withAuth) {
-        const token = Cookies.get('accessToken');
-        if (token) {
-          headers['Authorization'] = `Bearer ${token}`;
-        }
+        const token = Cookies.get("accessToken");
+        if (token) headers.Authorization = `Bearer ${token}`;
       }
 
-      const result = await axios({
+      // Явно укажем дженерики у axios.request:
+      // <T=unknown, R=AxiosResponse<T>, D=unknown>
+      const res = await axios.request<unknown, AxiosResponse<unknown>, unknown>({
         url: baseUrl + url,
         method,
         data,
@@ -24,58 +51,79 @@ export const axiosBaseQuery =
         withCredentials: true,
       });
 
-      return { data: result.data };
-    } catch (error: any) {
-      const status = error.response?.status;
+      return { data: res.data };
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err)) {
+        const status = err.response?.status;
 
-      if (status === 401 && withAuth) {
-        console.warn('⏳ Токен устарел, пробуем обновить...');
+        // 401 → пытаемся обновить токен
+        if (status === 401 && withAuth) {
+          try {
+            const refresh = await axios.post<RefreshResponse>(
+              `${baseUrl}/auth/refresh-token`,
+              {},
+              { withCredentials: true }
+            );
 
-        try {
-          // 1. Пробуем обновить токен
-          const refreshResponse = await axios.post(
-            `${baseUrl}/auth/refresh-token`,
-            {},
-            { withCredentials: true }
-          );
+            const newAccessToken = refresh.data.accessToken;
 
-          const newAccessToken = refreshResponse.data.accessToken;
+            if (newAccessToken) {
+              Cookies.set("accessToken", newAccessToken, {
+                expires: 7,
+                path: "/",
+              });
 
-          if (newAccessToken) {
-            console.log('✅ Новый токен получен, повтор запроса...');
-            Cookies.set('accessToken', newAccessToken, { expires: 7, path: '/' });
+              const retry = await axios.request<
+                unknown,
+                AxiosResponse<unknown>,
+                unknown
+              >({
+                url: baseUrl + url,
+                method,
+                data,
+                params,
+                headers: { Authorization: `Bearer ${newAccessToken}` },
+                withCredentials: true,
+              });
 
-            // 2. Повторяем оригинальный запрос с новым токеном
-            const retryHeaders: Record<string, string> = { Authorization: `Bearer ${newAccessToken}` };
+              return { data: retry.data };
+            }
 
-            const retryResult = await axios({
-              url: baseUrl + url,
-              method,
-              data,
-              params,
-              headers: retryHeaders,
-              withCredentials: true,
-            });
+            // refresh не вернул токен
+            Cookies.remove("accessToken");
+            Cookies.remove("refreshToken");
+            Cookies.remove("role");
+            Cookies.remove("id");
+            return { error: { status: 401, data: "Unauthorized" } };
+          } catch (refreshErr: unknown) {
+            const msg = axios.isAxiosError(refreshErr)
+              ? refreshErr.response?.data ?? refreshErr.message
+              : "Refresh failed";
 
-            return { data: retryResult.data };
+            Cookies.remove("accessToken");
+            Cookies.remove("refreshToken");
+            Cookies.remove("role");
+            Cookies.remove("id");
+            return { error: { status: 401, data: msg, message: "Unauthorized" } };
           }
-        } catch (refreshError) {
-          console.error('❌ Ошибка обновления токена, выполняем логаут...', refreshError);
-
-          // 3. Если обновление токена не получилось — удаляем куки
-          Cookies.remove('accessToken');
-          Cookies.remove('refreshToken');
-          Cookies.remove('role');
-          Cookies.remove('id');
-
-          return { error: { status: 401, data: 'Unauthorized' } };
         }
+
+        // Другая axios-ошибка
+        return {
+          error: {
+            status,
+            data: err.response?.data ?? null,
+            message: err.message,
+          },
+        };
       }
 
+      // Не-axios ошибка
       return {
         error: {
-          status,
-          data: error.response?.data || error.message,
+          status: 500,
+          data: null,
+          message: String(err),
         },
       };
     }

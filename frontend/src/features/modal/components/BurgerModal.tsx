@@ -2,7 +2,6 @@ import { AppDispatch, RootState } from "@/store/store";
 import { useDispatch } from "react-redux";
 import { closeTargetModal, createOrToogleModal, modalIntreface } from "../model/modalSlice";
 import { ReactNode } from "react";
-import BurgerModalWindows from "../ui/BurgerModalWindows";
 import { useSelector } from "react-redux";
 import { getTargetModalConf, selectModalByKey } from "../model/secletors";
 
@@ -16,7 +15,7 @@ type BurgerModalProps = {
         toggleModal:() => void,
         closeModal:() =>  void,
         isActive:boolean,
-        modalConf:modalIntreface<any>
+        modalConf:modalIntreface
     ) => ReactNode
 }
 export default function BurgerModal({children}:BurgerModalProps){

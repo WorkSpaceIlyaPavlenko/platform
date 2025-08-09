@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export interface modalIntreface<T = any>{
+export interface modalIntreface<T = unknown>{
     id?:number
     name?:string
     steps?:number
@@ -14,7 +14,6 @@ export interface modalSlocwInitialSate{
     
 }
 
-const modalLimit = 10;
 const initialState : modalSlocwInitialSate = {}
 
 const modelSlice = createSlice({

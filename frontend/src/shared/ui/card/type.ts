@@ -17,4 +17,5 @@ export interface WorksCardProps{
     name:string
     descr:string
     imgUrls:ImgInterface[]
+    link?:string
 }

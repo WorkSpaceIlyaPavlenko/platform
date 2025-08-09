@@ -16,6 +16,7 @@ export default function WorksBlock(){
                     name={work.name}
                     descr={work.descr}
                     imgUrls={work.imgUrls}
+                    link={work.link}
                     />
                 ))}
             </div>

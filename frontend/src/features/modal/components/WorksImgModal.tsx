@@ -4,17 +4,24 @@ import { AppDispatch, RootState } from "@/store/store"
 import { useSelector } from "react-redux"
 import { getTargetModalConf, selectModalByKey } from "../model/secletors"
 import { useDispatch } from "react-redux"
-import { closeTargetModal } from "../model/modalSlice"
+import { closeTargetModal, modalIntreface } from "../model/modalSlice"
 import WorkCardNav from "@/shared/components/WorkCardNav"
 import CrossSvg from "@/shared/assets/svg/CrossSvg.svg"
 import Image from "next/image"
+import { ImgInterface } from "@/shared/ui/card/type"
 
 const keymodal = 'WorksImgModal'
 const name = 'WorksImgModalImgs'
+export type MorelWorksDataType = {
+    
+        imgs: ImgInterface[],
+        curIdx: number
+    
+}
 export default function WorksImgModal(){
     const dispatch = useDispatch<AppDispatch>()
     const isActive  = useSelector((st:RootState) => selectModalByKey(st, keymodal, name))
-    const modalConf =  useSelector((st:RootState) => getTargetModalConf(st, keymodal))
+    const modalConf : modalIntreface<MorelWorksDataType> =  useSelector((st:RootState) => getTargetModalConf<MorelWorksDataType>(st, keymodal))
     const closeModal = () => {
         dispatch(closeTargetModal({key:keymodal}))
     }
@@ -28,7 +35,7 @@ export default function WorksImgModal(){
                 className="WorksImgModalBtnSvg"
                 />
             </button>
-            <WorkCardNav imgUrls={modalConf.more.imgs} indx={modalConf.more.curIdx} key={'WorksImgModal'}/>
+            <WorkCardNav imgUrls={ modalConf.more?.imgs ?? []} indx={ modalConf.more?.curIdx ?? 0} key={'WorksImgModal'}/>
         </div>}
         </>
         

@@ -2,11 +2,11 @@
 
 import Image from "next/image"
 import { ImgInterface, WorksCardProps } from "../ui/card/type"
-import React, { useEffect, useState } from "react"
+import React, {  memo, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import ArrowSvg from "@/shared/assets/svg/ArrorSvgV2.svg"
 import { useDispatch } from "react-redux"
-import { AppDispatch, RootState } from "@/store/store"
+import { AppDispatch } from "@/store/store"
 import { createOrToogleModal, modalIntreface } from "@/features/modal/model/modalSlice"
 import {  AddOptionalField } from "../utils/type"
 
@@ -14,7 +14,7 @@ const keymodal = 'WorksImgModal'
 
 type WorkCardImgsProps = AddOptionalField<Pick<WorksCardProps, "imgUrls">, "indx", number>
 
-const WorkCardNav = React.memo(function({imgUrls ,indx}:WorkCardImgsProps){
+const WorkCardNav = ({imgUrls ,indx}:WorkCardImgsProps) => {
     
     const dispatch = useDispatch<AppDispatch>()
     const [idx, setIdx] = useState(indx || 0)
@@ -77,5 +77,5 @@ const WorkCardNav = React.memo(function({imgUrls ,indx}:WorkCardImgsProps){
              </div>
         </>
     )
-})
-export default WorkCardNav
+}
+export default memo(WorkCardNav)

@@ -20,7 +20,7 @@ export default function OrderApplicationForm(){
 
 
     const handleForm = async (data:OrderApplication) => {
-        var newStatus:StusType = 'pending';
+        let newStatus:StusType = 'pending';
         
         setStatus(newStatus)
 
@@ -39,8 +39,9 @@ export default function OrderApplicationForm(){
             setStatus(newStatus)
             reset()
             } catch (err) {
-            newStatus = "failed"
-            setStatus(newStatus)
+                console.error(err);
+                newStatus = "failed"
+                setStatus(newStatus)
             }finally{
                 setTimeout(() => {
                     newStatus = "none"

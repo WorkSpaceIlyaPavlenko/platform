@@ -3,7 +3,7 @@ import { DevelopServiceList, dopImgs } from "@/shared/CONST";
 import Head from 'next/head'
 import './style.css'
 import { ReplaceKey } from "@/shared/utils/type";
-import { isArrayBuffer } from "util/types";
+
 
 export default function StageCard({ name, descr, imgUrl, dopImg }:ReplaceKey<DevelopServiceList, "imgsFigures", "dopImg", dopImgs>) {
     const jsonLd = {

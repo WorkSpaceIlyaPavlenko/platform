@@ -18,19 +18,19 @@ export default function Header(){
     useEffect(() => {
         scrollOffset.current = window.scrollY;
         const calculateScroll = () => {
-            var currentScroll = window.scrollY;
+            const currentScroll = window.scrollY;
             if (
                 currentScroll > scrollOffset.current &&
                 currentScroll - scrollOffset.current > 100
             ) {
                 scrollOffset.current = currentScroll;
-                setShow((prev) => prev = false);
+                setShow(false);
             } else if (
                 currentScroll < scrollOffset.current &&
                 scrollOffset.current - currentScroll > 50
             ) {
                 scrollOffset.current = currentScroll;
-                setShow((prev) => prev = true);
+                setShow(true);
             }
         };
 

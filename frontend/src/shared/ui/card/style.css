@@ -261,8 +261,11 @@
     height: auto;
     border-radius: 10px;
     height: 100%;
-    object-fit: cover;
-
+    object-fit: contain;
+    filter: brightness(60%);
+}
+.WorksImgModalWp .WorksCardImg{
+    filter: brightness(100%);
 }
 .WorksCardFlexSize{
     flex: 0 0 calc((100% - 2 * 38px) / 3);
@@ -620,6 +623,16 @@
     aspect-ratio: 1;
     bottom: 0;
     right: 0%;
+}
+@media (max-width:1300px) {
+    .WorksCardBtnWp{
+        font-size: 20px;
+        min-width: 280px;
+        width: 100%;
+    }
+    .DefButtonText{
+        font-size: 25px;
+    }
 }
 @media (max-width:970px) {
     .ServiceCardHeading{

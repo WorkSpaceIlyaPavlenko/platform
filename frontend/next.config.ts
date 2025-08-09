@@ -1,10 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  // experimental: {
-  //   svgr: true,      // ← включаем встроенный SVGR
-  // },
+  output: 'standalone',
 };
 
 export default nextConfig;

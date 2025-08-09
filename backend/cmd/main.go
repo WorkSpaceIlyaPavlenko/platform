@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"server/internal/db"
+
+	// "server/internal/db"
 	"server/internal/router"
 	telegram "server/internal/telegram"
 	"time"
@@ -11,7 +12,7 @@ import (
 
 func main() {
 
-	db.Init()
+	// db.Init()
 
 	telegram.InitBot()
 	go telegram.StartTelregramLisener()
@@ -19,7 +20,7 @@ func main() {
 	router := router.New()
 
 	server := &http.Server{
-		Addr:         ":7070",
+		Addr:         ":8080",
 		Handler:      router,
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,

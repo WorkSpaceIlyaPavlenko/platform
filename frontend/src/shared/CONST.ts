@@ -7,6 +7,9 @@ import { WorksCardProps } from "./ui/card/type"
 
 import makeImg from "./utils/makeImg"
 import VentilImgs from "./assets/worksData/Ventil/impots"
+import GC_IMGS from "./assets/worksData/GoldenCasing/import"
+import TestImg from '@/shared/assets/worksData/Test/Test.jpg'
+import BEER_IMGS from "./assets/worksData/BeerEs/import"
 import { ReplaceKey } from "./utils/type"
 
 export type NavListStructur = {
@@ -218,6 +221,17 @@ export const STAGES_LIST : ReplaceKey<DevelopServiceList, "imgsFigures", "dopImg
 ]
 export const WORKS_DATA : WorksCardProps[]= [
     {
+        name:'Golden Casing',
+        descr:'Корп. сайт мясной компании',
+        imgUrls:makeImg('GoldenCasing', [
+            GC_IMGS.MainImg,
+            GC_IMGS.CpImg,
+            GC_IMGS.SlugImg,
+            GC_IMGS.FormImg
+        ]),
+        link:'https://fadibibka-casingtesting-3914.twc1.net/',
+    },
+    {
         name:'Ventil',
         descr:'Интернет-магазин сантехники',
         imgUrls:makeImg('Ventil', [
@@ -229,48 +243,27 @@ export const WORKS_DATA : WorksCardProps[]= [
             VentilImgs.ImgBrands,
             VentilImgs.ImgDevlivery,
             VentilImgs.ImgContacts
-        ])
+        ]),
+        link:"https://santehventil.ru/"
     },
     {
-        name:'Beer',
-        descr:'Интернет-магазин пива',
-        imgUrls:makeImg('Beer', [
-            VentilImgs.ImgMain,
-            VentilImgs.ImgCart,
-            VentilImgs.ImgAcc,
-            VentilImgs.ImgCatalog,
-            VentilImgs.ImgProduct,
-            VentilImgs.ImgBrands,
-            VentilImgs.ImgDevlivery,
-            VentilImgs.ImgContacts
-        ])
-    },
-    {
-        name:'Myso',
-        descr:'Корп. сайт мясной компании',
-        imgUrls:makeImg('Myso', [
-            VentilImgs.ImgMain,
-            VentilImgs.ImgCart,
-            VentilImgs.ImgAcc,
-            VentilImgs.ImgCatalog,
-            VentilImgs.ImgProduct,
-            VentilImgs.ImgBrands,
-            VentilImgs.ImgDevlivery,
-            VentilImgs.ImgContacts
-        ])
-    },
-    {
-        name:'Test',
-        descr:'Психологический тест-опросиник',
+        name:'Медицинский тест',
+        descr:'Опросник',
         imgUrls:makeImg('Test', [
-            VentilImgs.ImgMain,
-            VentilImgs.ImgCart,
-            VentilImgs.ImgAcc,
-            VentilImgs.ImgCatalog,
-            VentilImgs.ImgProduct,
-            VentilImgs.ImgBrands,
-            VentilImgs.ImgDevlivery,
-            VentilImgs.ImgContacts
+            TestImg
+        ]),
+        link:"https://oncoscreentest.github.io/medical-test/"
+    },
+    {
+        name:'BEER ESSENTIALS',
+        descr:'Интернет-магазин пива',
+        imgUrls:makeImg('BEERESSENTIALS', [
+           BEER_IMGS.MainImg,
+           BEER_IMGS.Map,
+           BEER_IMGS.Slider,
+           BEER_IMGS.Card,
+           BEER_IMGS.Hits,
+           BEER_IMGS.Descr
         ])
     }
 ]

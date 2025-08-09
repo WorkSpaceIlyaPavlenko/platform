@@ -1,6 +1,6 @@
 'use client'
 import '../index.css'
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 import { OrderApplicationProps } from '../type'
 import { closeTargetModal, createOrToogleModal, modalIntreface } from '../model/modalSlice'
 import { useDispatch } from 'react-redux'
@@ -55,7 +55,7 @@ export default function OrderApplication({children, name}:OrderApplicationProps)
             )}
             {
                 isActive && 
-                <div className='OrderApplicationModalWrapper' style={{zIndex:modalConf.priority}}>
+                <div className='OrderApplicationModalWrapper' style={{zIndex:modalConf.status ? modalConf.priority : 4}}>
                     <BtnModalClose closeModal={() => closeModal()}/>
                     {
                         stage === 1 && <SeclectTypeForAppclication
@@ -64,17 +64,6 @@ export default function OrderApplication({children, name}:OrderApplicationProps)
                         closeModal={() => closeModal()}
                         />
                     }
-                    {/* {
-                        stage == 2 && <>
-                            Hello suchks
-                        </>
-                    } */}
-                    
-                    {/* <ModalNavigation
-                    changeStage={(newStage:number) => changeStage(newStage)}
-                    currentStage={stage}
-                    totalStageCount={modalConf.steps || 1}
-                    /> */}
                 </div>
             }
             

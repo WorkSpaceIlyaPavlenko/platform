@@ -1,2 +1,2 @@
-import { modalIntreface } from "../model/modalSlice";
+// import { modalIntreface } from "../model/modalSlice";
 
