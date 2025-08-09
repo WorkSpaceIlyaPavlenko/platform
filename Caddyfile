@@ -1,4 +1,4 @@
-:8088{
+:80{
   reverse_proxy * next:3000
   handle_path /api* {
     reverse_proxy api:8080
