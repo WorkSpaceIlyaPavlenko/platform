@@ -25,7 +25,7 @@ export default function OrderApplicationForm(){
         setStatus(newStatus)
 
         try {
-            const res = await fetch("http://localhost:8080/api/telegram/form", {
+            const res = await fetch("/api/telegram/form", {
                 method: "POST",
                 headers: {
                 "Content-Type": "application/json"
