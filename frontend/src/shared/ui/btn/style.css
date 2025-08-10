@@ -72,7 +72,7 @@
 }
 .DefButtonText{
     text-align: center;
-    font-family: 'Lora';
+    font-family: var(--font-manrope);
     font-style: normal;
     font-weight: 500;
     font-size: 36px;

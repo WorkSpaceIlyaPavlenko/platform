@@ -7,14 +7,13 @@
     background: rgba(var(--support_color), 0.8);
     backdrop-filter: blur(15px);
     border-radius: 50px;
-    font-family: 'Lora';
+    font-family: var(--font-manrope);
     color: var(--font_color_main);
-    max-width: 700px;
+    max-width: 750px;
     width: 100%;
-    /* width: 50%; */
     gap: 10px;
     transform: translate(10%,5%);
-
+   
 }
 .OrderApplicationFormHeaing{
     font-style: normal;
@@ -45,6 +44,7 @@
     border-radius: 20px;
     min-height: 60px;
     padding: 5px 10px;
+    font-size: 20px;
     box-sizing: border-box;
 }
 .OrderApplicationFormInputTextError{

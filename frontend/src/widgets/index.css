@@ -1,5 +1,5 @@
 .sectionHeading{
-    font-family: 'Prata';
+    font-family: var(--font-manrope);
     font-style: normal;
     font-weight: 400;
     font-size: 64px;

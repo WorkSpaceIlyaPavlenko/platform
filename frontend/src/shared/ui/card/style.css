@@ -60,14 +60,14 @@
 }
 .ServiceCardHeading{
     text-align: center;
-    font-family: 'Lora';
+    font-family: var(--font-manrope);
     font-style: normal;
     font-weight: 500;
     font-size: 50px;
     line-height: 64px;
 }
 .ServiceCardText{
-    font-family: 'Lora';
+    font-family: var(--font-manrope);
     font-style: normal;
     font-weight: 400;
     font-size: 30px;
