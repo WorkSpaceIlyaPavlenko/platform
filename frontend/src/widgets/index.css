@@ -26,6 +26,7 @@
     right: 0;
     z-index: 1;
     width: 50%;
+    max-width: 780px;
     height: auto;
     transform: translate(-10%, -65%);
     aspect-ratio: 1 / 1

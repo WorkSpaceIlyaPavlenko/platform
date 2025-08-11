@@ -690,6 +690,10 @@
     .WorkCardNavBtn{
         width: 15%;
     }
+    .WorksCardBtnWp{
+        min-width: 250px;
+        font-size: 20px;
+    }
     .WorksImgModalBtn{
         width: 15%;
     }
@@ -714,7 +718,7 @@
         line-height: 35px;
     }
     .WorksCardBtnWp{
-        min-width: 250px;
+        min-width: 220px;
         font-size: 20px;
     }
     .ServiceCardSvg{
@@ -733,5 +737,8 @@
         right: 5%;
         width: 15%;
         transition: 300ms ease-in-out all;
+    }
+    .DefButtonWp{
+        min-width: 220px;
     }
 }
