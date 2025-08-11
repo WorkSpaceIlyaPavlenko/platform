@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux"
 import { closeTargetModal, modalIntreface } from "../model/modalSlice"
 import WorkCardNav from "@/shared/components/WorkCardNav"
 import CrossSvg from "@/shared/assets/svg/CrossSvg.svg"
-import Image from "next/image"
+// import Image from "next/image"
 import { ImgInterface } from "@/shared/ui/card/type"
 
 const keymodal = 'WorksImgModal'
@@ -29,11 +29,12 @@ export default function WorksImgModal(){
         <>
         {isActive && <div className="WorksImgModalWp" style={{zIndex:modalConf.priority}} >
             <button className="WorksImgModalBtn" onClick={() => closeModal()}>
-                <Image
+                <CrossSvg className='WorksImgModalBtnSvg' />
+                {/* <Image
                 src={CrossSvg}
                 alt={'CrossSvg'}
                 className="WorksImgModalBtnSvg"
-                />
+                /> */}
             </button>
             <WorkCardNav imgUrls={ modalConf.more?.imgs ?? []} indx={ modalConf.more?.curIdx ?? 0} key={'WorksImgModal'}/>
         </div>}

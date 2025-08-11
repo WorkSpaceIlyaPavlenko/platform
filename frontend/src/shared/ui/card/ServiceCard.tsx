@@ -66,13 +66,14 @@ export default function ServiceCard({action, imgUrl, name, descr,imgsFigures}:Se
             </div>
             <DefButton action={() => action()} nameAction="Заказать">
                 <InnerButtonRound>
-                    <Image
+                    <ArrowSvg className='ServiceCardSvg'/>
+                    {/* <Image
                     src={ArrowSvg}
                     alt="ArrowSvg"
                     className="ServiceCardSvg"
                     width={41}
                     height={20}
-                    />
+                    /> */}
                 </InnerButtonRound>
             </DefButton>
         </article>

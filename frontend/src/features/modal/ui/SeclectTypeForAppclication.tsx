@@ -2,7 +2,7 @@
 
 import { ORDER_APPLICATION_VARIANTS } from "@/shared/CONST"
 import { updateModalProps } from "@/widgets/ServiceBlock"
-import Image from "next/image"
+// import Image from "next/image"
 import Link from "next/link"
 
 type Props = {
@@ -46,11 +46,11 @@ export default function SeclectTypeForAppclication({handleApllication, changeSta
                         closeModal();
                     }}
                     >
-                        <Image
+                        {/* <Image
                         src={item.icon}
                         alt="SvgIcon"
                         className="SeclectTypeForAppclicationSvg"
-                        />
+                        /> */}
                         {item.name}
                     </Link>
             })}

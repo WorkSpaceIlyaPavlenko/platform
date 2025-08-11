@@ -62,6 +62,11 @@
     align-items: center;
     justify-content: center;
 }
+.LoginSvg, .BurrgerSvg{
+  width: 40px;
+  height: 40px;
+  fill: rgba(var(--foreground));
+}
 .heaedrsTooglesWp{
     display: flex;
     flex-direction: column;
@@ -80,9 +85,18 @@
     border-radius: 100px;
     border: none;
     cursor: pointer;
-
 }
-.ThemeButtonDarkSvg rect {
+.ThemeButtonSvg{
+  width: 31px;
+  height: 31px;
+}
+.ThemeButtonSvg rect{
+  fill: var(--svg-dop-color);
+}
+.ThemeButtonSvg path{
+  fill: var(--svg-dop-color-2);
+}
+/* .ThemeButtonDarkSvg rect {
   fill: #622AC5;
 }
 .ThemeButtonDarkSvg path {
@@ -94,7 +108,7 @@
 }
 .ThemeButtonLightSvg path {
   fill: #B6A858;
-}
+} */
 .NoDes{
   display: none;
 }

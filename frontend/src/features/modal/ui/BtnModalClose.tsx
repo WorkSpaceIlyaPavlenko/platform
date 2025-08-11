@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+// import Image from 'next/image'
 import '../index.css'
 import CrossSvg from '@/shared/assets/svg/CrossSvg.svg'
 
@@ -10,11 +10,12 @@ type Props = {
 export default function BtnModalClose({closeModal}:Props){
     return (
         <button className="ModalCloseBtn" onClick={() => closeModal()}>
-            <Image
+            <CrossSvg className='ModalCloseBtnSvg'/>
+            {/* <Image
             src={CrossSvg}
             alt={'ModalWindowClose'}
             className='ModalCloseBtnSvg'
-            />
+            /> */}
         </button>
     )
 }

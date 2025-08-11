@@ -1,5 +1,5 @@
 import { NAV_LIST } from "@/shared/CONST";
-import Image from "next/image";
+// import Image from "next/image";
 import ArrowSvg from '@/shared/assets/svg/ArrowSvg.svg'
 
 type NavForModalProps = {
@@ -16,13 +16,14 @@ export default function NavForModal({tooggleModal}:NavForModalProps){
                 onClick={() => tooggleModal()}
                 >
                     <div className="NavForModalRoundWp">
-                        <Image
+                        <ArrowSvg className="ArrowSvgNav WorksBlockPostiton"/>
+                        {/* <Image
                         src={ArrowSvg}
                         alt="ArrowSvg"
                         width={41}
                         height={20}
                         className="WorksBlockPostiton"
-                        />
+                        /> */}
                     </div>
                     {el.name}
                 </a>

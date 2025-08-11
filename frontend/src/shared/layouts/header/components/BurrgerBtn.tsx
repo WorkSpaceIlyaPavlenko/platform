@@ -1,5 +1,5 @@
 'use client'
-import Image from "next/image"
+// import Image from "next/image"
 import BurrgerSvg from "@/shared/layouts/header/assets/BurgerSvg.svg"
 
 
@@ -10,11 +10,12 @@ type BurrgerBtnProps = {
 export default function BurrgerBtn({toggleModal}:BurrgerBtnProps){
     return (
         <button className="HeaderButtonsWp NoDes MobailBtn" onClick={() => toggleModal()}>
-            <Image
+            <BurrgerSvg className="BurrgerSvg"/>
+            {/* <Image
             src={BurrgerSvg}
             alt={'BurrgerSvg'}
             className=""
-            />
+            /> */}
         </button>
     )
 }

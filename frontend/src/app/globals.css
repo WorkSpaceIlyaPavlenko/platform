@@ -13,6 +13,8 @@ html[data-theme="light"] {
   --support_color:204,197,197;
   --font_color_main:31,29,33;
   --font_color_second:234,224,224;
+  --svg-dop-color:transparent;
+  --svg-dop-color-2:#B6A858;
   color-scheme: light;
 }
 
@@ -22,6 +24,8 @@ html[data-theme="dark"] {
   --support_color:65,64,62;
   --font_color_main:234,224,224;
   --font_color_second:31,29,33;
+  --svg-dop-color:#622AC5;
+  --svg-dop-color-2:#303030;
   color-scheme: dark;
 }
 

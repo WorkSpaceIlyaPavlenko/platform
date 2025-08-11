@@ -16,6 +16,14 @@
     transition: 500ms ease-in-out all;
     
 }
+.ServiceCardSvg{
+    width: 80%;
+    height: 40%;
+    stroke: rgba(var(--foreground));
+    stroke-width: 4;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
 @keyframes fadeUp {
   to {
     opacity: 1;
@@ -131,6 +139,11 @@
 .WorksCardFlexSize:hover .WorkCardNavBtn.Right{
     right: 5%;
     transition: 300ms ease-in-out all;
+}
+.ArrowSvg {
+    width:46px;
+    height:26px;
+    fill: rgba(var(--foreground));
 }
 .ArrowSvg.Left{
     transform: rotate(180deg);

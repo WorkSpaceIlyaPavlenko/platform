@@ -1,6 +1,5 @@
 import { WorksCardProps } from "./type";
 import './style.css'
-import Image from "next/image";
 import InnerButtonRound from "../btn/InnerBtnRound";
 import ArrowSvg from '@/shared/assets/svg/ArrowSvg.svg'
 import WorkCardNav from "@/shared/components/WorkCardNav";
@@ -21,13 +20,14 @@ export default function WorksCard({name, descr, imgUrls, link}:WorksCardProps){
                 className="DefButtonWp WorksCardBtnWp"
                 >
                     <InnerButtonRound>
-                        <Image
+                        <ArrowSvg className="ServiceCardSvg WorksBlockPostiton"/>
+                        {/* <Image
                         src={ArrowSvg}
                         alt="ArrowSvg"
                         width={41}
                         height={20}
                         className="ServiceCardSvg WorksBlockPostiton"
-                        />
+                        /> */}
                     </InnerButtonRound>
                     <p className="DefButtonText">Посмотреть</p>
                 </a>

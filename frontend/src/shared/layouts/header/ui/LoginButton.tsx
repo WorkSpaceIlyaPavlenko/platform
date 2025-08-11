@@ -1,6 +1,6 @@
 'use client'
 
-import Image from "next/image"
+// import Image from "next/image"
 import UserLogin from "../components/UserLogin"
 import LoginSvg from '@/shared/layouts/header/assets/LoginSvg.svg'
 import Link from "next/link"
@@ -11,12 +11,13 @@ export default function LoginButton(){
             {() => (
             
                 <Link className="HeaderButtonsWp" href={'/'}>
-                    <Image
+                    <LoginSvg className="LoginSvg" />
+                    {/* <Image
                     src={LoginSvg}
                     alt={'LoginSvg'}
                     width={40}
                     height={40}
-                     />
+                     /> */}
                 </Link>
             )}
         </UserLogin>

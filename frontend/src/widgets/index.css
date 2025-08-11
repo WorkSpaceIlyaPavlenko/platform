@@ -72,6 +72,14 @@
     overflow-x: auto;
     overflow-y: hidden;
 }
+.ArrowSvgNav{
+    width: 41px;
+    height: 20px;
+    stroke: rgba(var(--foreground));
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
 .WorksBlockPostiton{
     transform: rotate(-45deg);
 }

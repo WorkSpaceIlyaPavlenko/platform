@@ -46,14 +46,16 @@ const WorkCardNav = ({imgUrls ,indx}:WorkCardImgsProps) => {
                 setIdx((prev) => (prev - 1 < 0) ? imgUrls.length - 1 : prev - 1 )
                 modalInfo(false);
             }}>
-                <Image src={ArrowSvg} alt="Arrrow Svg Left" className="ArrowSvg Left"/>
+                <ArrowSvg className="ArrowSvg Left"/>
+                {/* <Image src={ArrowSvg} alt="Arrrow Svg Left" className="ArrowSvg Left"/> */}
             </button>
             <button className="WorkCardNavBtn Right"
             onClick={() => {
                 setIdx(prev => (prev + 1) % imgUrls.length)
                 modalInfo(false);
             }}>
-                <Image src={ArrowSvg} alt="Arrrow Svg Right" className="ArrowSvg Right"/>
+                <ArrowSvg className="ArrowSvg Right"/>
+                {/* <Image src={ArrowSvg} alt="Arrrow Svg Right" className="ArrowSvg Right"/> */}
             </button>
              <div className="WorksCardImgsWp" onClick={() => handleModalClick()}>
                 <AnimatePresence mode="wait">
